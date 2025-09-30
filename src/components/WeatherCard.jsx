@@ -67,7 +67,7 @@ function WeatherCard({ weatherData }) {
   return (
     <Card
       sx={{
-        maxWidth: "50vw",
+        maxWidth: { xs: "100vw", sm: "50vw" },
         bgcolor: "#9163cb",
         color: "white",
         margin: "auto",
@@ -86,7 +86,11 @@ function WeatherCard({ weatherData }) {
 
           <Box
             sx={{ display: "flex", alignItems: "center", gap: 1, marginY: 1 }}>
-            <Typography variant="h4" component="div" fontWeight={"bold"}>
+            <Typography
+              variant="h4"
+              component="div"
+              fontWeight={"bold"}
+              alignItems={"center"}>
               {Math.round(main.temp)}°
               <Typography component={"span"} fontWeight={"bold"}>
                 C
@@ -95,8 +99,18 @@ function WeatherCard({ weatherData }) {
 
             {media.icon}
 
-            <Typography variant="h6">{`(${weather[0].description})`}</Typography>
+            <Typography
+              variant="h6"
+              sx={{
+                display: { xs: "none", sm: "inline" },
+              }}>{`(${weather[0].description})`}</Typography>
           </Box>
+
+          <Typography
+            variant="h6"
+            sx={{
+              display: { sm: "none" },
+            }}>{`(${weather[0].description})`}</Typography>
 
           <Typography variant="body2">
             Feels like : {Math.round(main.feels_like)}° C
