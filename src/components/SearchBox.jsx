@@ -120,6 +120,7 @@ function SearchBox({ setWeatherData }) {
           <Grid>
             {isSmallScreen ? (
               <IconButton
+                type="submit"
                 sx={{
                   bgcolor: "#9163cb",
                   color: "white",
